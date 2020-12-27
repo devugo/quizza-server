@@ -28,15 +28,3 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user', 'UserController@getAuthenticatedUser');
     Route::get('closed', 'DataController@closed');
 });
-
-
-Route::get('/auth/redirect', function () {
-    session(['key' => 'value']);
-    // return Socialite::driver('google')->redirect();
-});
-
-Route::get('/auth/callback', function () {
-    $user = Socialite::driver('google')->user();
-
-    // $user->token
-});
